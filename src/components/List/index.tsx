@@ -12,13 +12,12 @@ export interface ICardListProps {
 }
 
 export default function List({ data, index }: any) {
-  console.log(data, 'List')
   return (
     <ListContainer key={data.title}>
       <Droppable droppableId={String(index)}>
         {(provider) => (
           <ul ref={provider.innerRef}>
-            {data.cards.map((card: any) => <Card key={card.id} data={card} />)}
+            {data.cards.map((card: any, index: number) => <Card key={card.id} data={card} index={index} />)}
           </ul>
         )}
       </Droppable>
