@@ -1,9 +1,11 @@
-import { DashboardContainer } from './styles';
+import Board from '../Board';
+import { DashboardContainer, DashboardTitle } from './styles';
 
 export function Dashboard() {
   return (
     <DashboardContainer>
-      <h1>Monitoring & Perfomance</h1>
+      <DashboardTitle>Revenue & Perfomance</DashboardTitle>
+      <Board />
     </DashboardContainer>
   )
 }
