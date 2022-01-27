@@ -3,7 +3,13 @@ import Chart from 'react-apexcharts';
 
 import { LineChartContainer } from './styles';
 
-export default function LineChart({ data }: any) {
+interface ILineChartProps {
+  lineData: number[] | undefined;
+  graphType: string;
+  title: string;
+}
+
+export default function LineChart({ lineData, graphType, title }: ILineChartProps) {
   const options = {
     dataLabels: {
       enabled: false,
@@ -33,14 +39,14 @@ export default function LineChart({ data }: any) {
   const series = [
     {
       name: 'revenue',
-      data: data.data
+      data: lineData
     }
   ]
 
   return (
     <LineChartContainer>
-      <h2>{data.title}</h2>
-      <Chart options={options} series={series} type={data.graphType} height={200} width={450} />
+      <h2>{title}</h2>
+      <Chart options={options} series={series} type={'line'} height={200} width={450} />
     </LineChartContainer >
   )
 }

@@ -94,7 +94,7 @@ export function Board() {
     <CardsContext.Provider value={{ cardLists, moveCard }}>
       <DragDropContext onDragEnd={onDragEnd}>
         <BoardContainer>
-          {lists.map((list, index) => <List key={list.title} data={list} index={index} />)}
+          {lists.map((list: ICardList, index: number) => <List key={list.title} data={list} index={index} />)}
         </BoardContainer>
       </DragDropContext>
     </CardsContext.Provider>

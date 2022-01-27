@@ -4,9 +4,14 @@ import LineChart from '../LineChart';
 import { CardContainer } from './styles';
 import PieChart from '../PieChart';
 import DataCard from '../DataCard';
+import { ICard } from '../../interfaces/Card';
 
-export function Card({ data, index }: any) {
+export interface ICardProps {
+  data: ICard;
+  index: number;
+}
 
+export function Card({ data, index }: ICardProps) {
   return (
     <Draggable draggableId={String(data.id)} index={index}>
       {(provided, snapshot) => (
@@ -17,12 +22,12 @@ export function Card({ data, index }: any) {
           {...provided.dragHandleProps}
           isDragging={snapshot.isDragging}
         >
-          {data.title === "Revenue Today" ? <DataCard data={data} /> : null}
-          {data.title === "Revenue Past 7 days" ? <DataCard data={data} /> : null}
-          {data.title === "Revenue over time of 7 days" ? <LineChart data={data} /> : null}
-          {data.title === "Profit over time of 7 days" ? <LineChart data={data} /> : null}
-          {data.title === "Top 5 sellers" ? <PieChart data={data} /> : null}
-          {data.title === "Top 5 ads" ? <PieChart data={data} /> : null}
+          {data.title === "Revenue Today" ? <DataCard value={data.value} title={data.title} /> : null}
+          {data.title === "Revenue Past 7 days" ? <DataCard value={data.value} title={data.title} /> : null}
+          {data.title === "Revenue over time of 7 days" ? <LineChart lineData={data.data} graphType={data.graphType} title={data.title} /> : null}
+          {data.title === "Profit over time of 7 days" ? <LineChart lineData={data.data} graphType={data.graphType} title={data.title} /> : null}
+          {data.title === "Top 5 sellers" ? <PieChart pieData={data.data} graphType={data.graphType} title={data.title} labels={data.labels} /> : null}
+          {data.title === "Top 5 ads" ? <PieChart pieData={data.data} graphType={data.graphType} title={data.title} labels={data.labels} /> : null}
         </CardContainer>
 
       )}

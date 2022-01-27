@@ -6,13 +6,13 @@ export function loadLists() {
         {
           id: 1,
           title: "Revenue Today",
-          value: "$ 50,000",
+          value: 50000,
           graphType: "line",
         },
         {
           id: 2,
           title: "Revenue Past 7 days",
-          value: "$ 250,000",
+          value: 250000,
           graphType: "line",
         },
       ],

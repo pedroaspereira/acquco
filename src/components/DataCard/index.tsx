@@ -1,14 +1,20 @@
-
-
+import React from "react";
+import { ICard } from "../../interfaces/Card";
 import { DataCardContainer, DataCardTitle, DataCardValueContainer, DataCardValue } from "./styles"
 
-export default function DataCard({ data }: any) {
+interface IDataCardProps {
+  title: string;
+  value: number | undefined;
+}
+
+export default function DataCard({ title, value }: IDataCardProps) {
+
   return (
     <DataCardContainer>
-      <DataCardTitle>{data.title}</DataCardTitle>
+      <DataCardTitle>{title}</DataCardTitle>
       <DataCardValueContainer>
         <DataCardValue>
-          {data.value}
+          $ {value}
         </DataCardValue>
       </DataCardValueContainer>
     </DataCardContainer>
