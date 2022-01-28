@@ -12,7 +12,6 @@ export interface ICardListProps {
 }
 
 export default function List({ data, index }: ICardListProps) {
-  console.log(data, 'List')
   return (
     <ListContainer key={data.title}>
       <Droppable droppableId={String(index)}>

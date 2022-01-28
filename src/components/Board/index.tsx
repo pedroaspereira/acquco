@@ -48,8 +48,6 @@ export function Board() {
 
     newCardList[to.columnIndex].cards.splice(to.cardIndex, 0, dragged);
 
-    console.log(newCardList);
-
     setCardLists(newCardList);
   };
   useEffect(() => {
@@ -71,8 +69,6 @@ export function Board() {
 
       if (isDropInActualPosition(source, destination)) return;
 
-      console.log('draggableId!', draggableId);
-
       const draggedItem = {
         cardIndex: source.index,
         columnIndex: Number(source.droppableId),
@@ -82,8 +78,6 @@ export function Board() {
         cardIndex: destination.index,
         columnIndex: Number(destination.droppableId),
       };
-
-      console.log('cardlists', cardLists);
 
       moveCard(draggedItem, droppedItem, cardLists);
     },
